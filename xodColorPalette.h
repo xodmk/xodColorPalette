@@ -48,9 +48,9 @@ class XodColorPalette
 public:
 	XodColorPalette();
 	~XodColorPalette() {}
-	void hexStringToRGB(const string s, T rgbArray[3]);
-	void hexPaletteToRGB(xodPalette xp, T rbgPalette[6][3]);
-	void xodColorGetRGB(xodPalette xodp, int cIdx, T xodRgb[3]);
+	void hexStringToRGB(const string& s, T rgbArray[3]);
+	void hexPaletteToRGB(xodPalette xp, T rbgPalette[][3]);
+	void xodColorGetRGB(xodPalette xp, int cIdx, T xodRgb[3]);
 	void printPalette(xodPalette xp);
 
 	vector<string> keyNames;
@@ -90,7 +90,7 @@ void XodColorPalette<T>::printPalette(xodPalette xp)
 
 // function converts HTML Hex string to RGB Integer value array
 template<class T>
-void XodColorPalette<T>::hexStringToRGB(const string s, T rgbArray[3])
+void XodColorPalette<T>::hexStringToRGB(const string& s, T rgbArray[3])
 {
 	//assert(s.length == 6);
 	for (int i = 0; i < 3; i++) {
@@ -104,21 +104,20 @@ template<class T>
 void XodColorPalette<T>::xodColorGetRGB(xodPalette xp, int cIdx, T xodRgb[3])
 {
 	vector<string> colorHexV = paletteMap[paletteNameMap[xp]];
-	for (int i = 0; i < 6; i++) {
-		hexStringToRGB(colorHexV[i], xodRgb);
-	}
+	assert (cIdx < colorHexV.size());
+	hexStringToRGB(colorHexV[cIdx], xodRgb);
 }
 
 
 //====================================================
 // function converts HTML Hex string to a RGB palette of type T
 template<class T>
-void XodColorPalette<T>::hexPaletteToRGB(xodPalette xp, T rbgPalette[6][3])
+void XodColorPalette<T>::hexPaletteToRGB(xodPalette xp, T rbgPalette[][3])
 {
 	T rgbArray[3];
 	vector<string> colorHexV = paletteMap[paletteNameMap[xp]];
 
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < colorHexV.size(); i++) {
 		hexStringToRGB(colorHexV[i], rgbArray);
 		for (int j = 0; j < 3; j++) {
 			rbgPalette[i][j] = rgbArray[j];

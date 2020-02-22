@@ -32,7 +32,7 @@ using namespace std;
 // *-- Define custom color palettes: arbitrary names and HTML sytle Hex codes--*
 // *-- Requirement - enum entries must match map Key names --*
 
-enum class xodPalette { seijin, gorgulan, subcon, newwave, trilobyte, barong, purpor, mollusk, tiamat, sebek, worm };
+enum class xodPalette { seijin, gorgulan, subcon, newwave, trilobyte, barong, purpor, mollusk, tiamat, sebek, worm, misc };
 
 map< xodPalette, string > paletteNameMap {
 
@@ -46,7 +46,9 @@ map< xodPalette, string > paletteNameMap {
     {xodPalette::mollusk,   "mollusk" },
     {xodPalette::tiamat,    "tiamat" },
     {xodPalette::sebek,     "sebek" },
-    {xodPalette::worm,      "worm" }
+    {xodPalette::worm,      "worm" },
+    {xodPalette::misc,      "misc" }
+
 
 };
 
@@ -63,7 +65,8 @@ map< string, vector<string> > paletteMap {
     {"mollusk",   { "415559", "355468", "434d74", "65406e", "822e53", "8a2828" }},
     {"tiamat",    { "242c2e", "2e4c53", "356e7a", "3791a4", "32b7d1", "21deff" }},
     {"sebek",     { "171111", "3e1421", "610e42", "791173", "772eb4", "0856ff" }},
-    {"worm",      { "7da2ab", "648eaf", "6d74a9", "89538d", "982c58", "8a1616" }}
+    {"worm",      { "7da2ab", "648eaf", "6d74a9", "89538d", "982c58", "8a1616" }},
+    {"misc",      { "5c163a", "882442", "794bc2", "569500" }}
 
 };
 

@@ -39,32 +39,6 @@ int main()
     XodColorPalette<int> CP;
 
 
-    // cout <<endl;
-    // cout <<"// *-------------------------------------------------------------------------------------------* //"<<endl;
-    // cout <<"Print from User Defined Color Palette Map.."<<endl<<endl;
-
-    // cout <<"access and print a Color Palette (vector of HTML Hex Codes):"<<endl;
-
-    // vector<string> testVec2 = xodPaletteMapEnum[xodPalette::tiamat];
-    // cout <<"tiamat = ((  ";
-    // for(string str1 : testVec2)
-    //     cout<<str1<<"  ";
-    // cout<<"))"<<endl<<endl;
-
-
-    // cout <<"Print Color Palette Map Keys (enum cast to underlying_type):"<<endl<<endl;
-
-    // vector<xodPalette> mapVecKey2;
-    // cout <<"xodPaletteMapEnum keys = ((  ";
-    // for(map< xodPalette, vector<string> >::iterator it = xodPaletteMapEnum.begin(); it != xodPaletteMapEnum.end(); ++it) {
-    //     mapVecKey2.push_back(it->first);
-    //     cout << static_cast<typename std::underlying_type<xodPalette>::type>(it->first)<<"  ";
-    //     //cout << it->first<<"  ";
-    // }
-    // cout<<"))"<<endl<<endl;
-
-
-
     cout <<endl;
     cout <<"// *----------------------------------------------------------------* //"<<endl;
     cout <<"Intanced XodColorHex2T Class Template.."<<endl<<endl;
@@ -129,6 +103,21 @@ int main()
         cout<<endl;
     }
 
+
+    cout <<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"Repeat above for HEX string array of different size:"<<endl<<endl;
+
+    int gxRgbPalette2[4][3];
+    CP.hexPaletteToRGB(xodPalette::misc, gxRgbPalette);
+
+    cout <<"color palette 'sebek' RGB <int> values:"<<endl;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout<<gxRgbPalette[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 
     /*------------------------------------------------------------------------------------------------*/
     /*---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%---*
