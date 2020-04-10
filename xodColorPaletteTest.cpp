@@ -36,20 +36,26 @@ int main()
 	/*---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%---*
 	/*------------------------------------------------------------------------------------------------*/
 
-    XodColorPalette<int> CP;
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"// *----- Test XodColorPaletteAll Class -----* //"<<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl<<endl;
+
+    XodColorPaletteAll<int> CP_A;
 
 
     cout <<endl;
     cout <<"// *----------------------------------------------------------------* //"<<endl;
-    cout <<"Intanced XodColorHex2T Class Template.."<<endl<<endl;
+    cout <<"Intanced XodColorPaletteAll Class Template.."<<endl<<endl;
 
 
     cout <<endl;
     cout <<"// *----------------------------------------------------------------* //"<<endl;
     cout <<"Print Defined Color Palette Names (map keyNames):"<<endl<<endl;
 
+    vector<string> KeyNm = CP_A.getKeyNames();
+
     cout<<"(( ";
-    for(auto s : CP.keyNames)
+    for(auto s : KeyNm)
         cout<<s<<" ";
     cout<<"))"<<endl<<endl;
 
@@ -58,7 +64,7 @@ int main()
     cout <<"// *----------------------------------------------------------------* //"<<endl;
     cout <<"Print a pre-defined color palette (printPalette(...):"<<endl<<endl;
 
-    CP.printPalette(xodPalette::tiamat);
+    CP_A.printPalette(xodPalette::tiamat);
 
 
     cout <<endl;
@@ -67,7 +73,7 @@ int main()
 
     string exampleHexStr {"565656"};
     int gxRGB1[3];
-    CP.hexStringToRGB(exampleHexStr, gxRGB1);
+    CP_A.hexStringToRGB(exampleHexStr, gxRGB1);
 
     cout <<"exampleHexStr {565656} = (( ";
     for(int x : gxRGB1)
@@ -80,7 +86,7 @@ int main()
     cout <<"Get specific RGB value <int> from ColorPalette Map (xodColorGetRGB(...):"<<endl<<endl;
 
     int gxRGB2[3];
-    CP.xodColorGetRGB(xodPalette::seijin, 5, gxRGB2);
+    CP_A.xodColorGetRGB(xodPalette::seijin, 5, gxRGB2);
 
     cout <<"seijin(5) = (( ";
     for(int x : gxRGB2)
@@ -93,7 +99,7 @@ int main()
     cout <<"Convert HTML HEX string array to a RGB palette of type T (hexPaletteToRGB(...):"<<endl<<endl;
 
     int gxRgbPalette[6][3];
-    CP.hexPaletteToRGB(xodPalette::sebek, gxRgbPalette);
+    CP_A.hexPaletteToRGB(xodPalette::sebek, gxRgbPalette);
 
     cout <<"color palette 'sebek' RGB <int> values:"<<endl;
     for (int i = 0; i < 6; i++) {
@@ -109,19 +115,66 @@ int main()
     cout <<"Repeat above for HEX string array of different size:"<<endl<<endl;
 
     int gxRgbPalette2[4][3];
-    CP.hexPaletteToRGB(xodPalette::misc, gxRgbPalette);
+    CP_A.hexPaletteToRGB(xodPalette::misc, gxRgbPalette);
 
-    cout <<"color palette 'sebek' RGB <int> values:"<<endl;
+    cout <<"color palette 'misc' RGB <int> values:"<<endl;
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 3; j++) {
             cout<<gxRgbPalette[i][j]<<" ";
         }
         cout<<endl;
     }
+    cout<<endl<<endl;
+    
 
     /*------------------------------------------------------------------------------------------------*/
     /*---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%---*
     /*------------------------------------------------------------------------------------------------*/
 
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"// *----- Test XodColorPalette Class -----* //"<<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl<<endl;
+
+    XodColorPalette<int> CP = XodColorPalette<int>(xodPalette::sebek);
+
+
+    cout <<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"Intanced XodColorPalette Class Template.."<<endl<<endl;
+
+
+
+    cout <<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"Get specific RGB value <int> from ColorPalette Map (xodColorGetRGB(...):"<<endl<<endl;
+
+    int gxRGB3[3];
+    CP.xodColorGetRGB(5, gxRGB3);
+
+    cout <<"seijin(5) = (( ";
+    for(int x : gxRGB3)
+        cout<<x<<" ";
+    cout<<"))"<<endl<<endl;
+
+
+    cout <<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"Convert HTML HEX string array to a RGB palette of type T (hexPaletteToRGB(...):"<<endl<<endl;
+
+    int gxRgbPalette3[6][3];
+    CP.hexPaletteToRGB(gxRgbPalette3);
+
+    cout <<"color palette RGB <int> values:"<<endl;
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout<<gxRgbPalette3[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl<<endl;
+
+    cout <<"// *----------------------------------------------------------------* //"<<endl;
+    cout <<"// *----- Test Complete -----* //"<<endl;
+    cout <<"// *----------------------------------------------------------------* //"<<endl<<endl;
 
 }
