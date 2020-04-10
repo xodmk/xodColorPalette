@@ -137,11 +137,8 @@ vector<string> XodColorPaletteAll<T>::getKeyNames()
 	return kNames;
 }
 
-#endif	// __XODCOLORPALETTE_H__
-
 
 //==============================================================================
-
 
 template<class T>
 class XodColorPalette
@@ -219,3 +216,8 @@ void XodColorPalette<T>::printPalette()
         cout<<str1<<"  ";
     cout<<"))"<<endl<<endl;
 }
+
+
+#endif	// __XODCOLORPALETTE_H__
+
+//==============================================================================
