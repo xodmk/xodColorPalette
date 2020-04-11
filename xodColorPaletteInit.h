@@ -34,7 +34,7 @@ using namespace std;
 
 enum class xodPalette { seijin, gorgulan, subcon, newwave, trilobyte, barong, purpor, mollusk, tiamat, sebek, worm, misc };
 
-map< xodPalette, string > paletteNameMap {
+static map< xodPalette, string > paletteNameMap {
 
     {xodPalette::seijin,    "seijin" },
     {xodPalette::gorgulan,  "gorgulan" },
@@ -48,12 +48,11 @@ map< xodPalette, string > paletteNameMap {
     {xodPalette::sebek,     "sebek" },
     {xodPalette::worm,      "worm" },
     {xodPalette::misc,      "misc" }
-
-
+    
 };
 
 
-map< string, vector<string> > paletteMap {
+static map< string, vector<string> > paletteMap {
 
     {"seijin",    { "171111", "3d292f", "634457", "83638a", "9689c3", "96b4ff" }},
     {"gorgulan",  { "4f4e4e", "726068", "897590", "8992c0", "69b5ea", "00d9ff" }},
